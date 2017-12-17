@@ -11,11 +11,43 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .stylus('resources/assets/stylus/app.styl', 'public/css', {
-   	use : [
-   		require('rupture')()
-   	]  
-});
+mix.js('resources/assets/js/app.js','public/js')
+   .sass('resources/assets/sass/app.scss', 'public/css')
+   .stylus('resources/assets/stylus/styles.styl', 'public/css', {
+        use : [
+          require('rupture')(),
+          require('nib')()  
+        ],
+        import: [
+          '~rupture/rupture/index.styl',
+          '~nib/index.styl'
+        ]  
+    })
+   .styles('public/css/vendor/fontawesome/css/font-awesome.min.css', 'public/css/all.css')
+   .browserSync({
+    	proxy: 'http://localhost:8000'
+	 })
+   
+;
 
-   //.sass('resources/assets/sass/app.scss', 'public/css')
+  // .sass('resources/assets/sass/app.scss', 'public/css')
+  //  .stylus('resources/assets/stylus/app.styl', 'public/css', {
+  //     use : [
+  //       require('rupture')(),
+  //       require('nib')()  
+  //     ],
+  //     import: [
+  //       '~rupture/rupture/index.styl',
+  //         '~nib/index.styl'
+  //       ]  
+  // })
+  //  .styles([
+  //     'node_modules/bootstrap/dist/css/bootstrap.min.css',
+  //     'public/css/vendor/fontawesome/css/fontawesome.min.css'
+  //   ], 'public/css/all.css'
+  // )
+//  .styles([
+  //     'node_modules/bootstrap/dist/css/bootstrap.min.css',
+  //     'public/css/vendor/fontawesome/css/fontawesome.min.css'
+  //   ], 'public/css/all.css'
+  // )
