@@ -30,3 +30,9 @@ Route::resource('category', 'CategoryController');
 Route::resource('item', 'ItemController');
 
 Route::resource('profile','AdminUserController');
+
+Route::resource('product', 'ProductAdminController');
+
+Route::resource('cart', 'ShoppingCartController');
+
+Route::resource('contact', 'MessagesController');

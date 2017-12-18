@@ -16,6 +16,17 @@
 				<h5>&nbsp;<strong>Stock:</strong> {{ number_format($product->stock, 2, ',', '.') }}</h5>
 				<strong>Descripción: </strong>
 				<p>{{ $product->description }}</p>
+				<form action="{{ route('cart.store') }}" method="POST">
+					{!! csrf_field() !!}
+					<input type="hidden" name="id" value="{{$product->id}}">
+					<input type="hidden" name="name" value="{{$product->name}}">
+					<strong>Cantidad:</strong><input type="number" name="qty" value="1">
+					<input type="hidden" name="price" value="{{$product->price}}">
+					<button class="btn btn-outline-default my-2 my-sm-0" type="submit">Añadir</button>
+				</form>
+				
+				
+				
 				<a class="btn btn-outline-default my-2 my-sm-0" href="{{ url()->previous() }}">Volver</a>
 			</div>
 		@endforeach

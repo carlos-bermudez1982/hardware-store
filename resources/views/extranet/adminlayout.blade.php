@@ -62,15 +62,20 @@
 
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="{{ url('/') }}">Inicio <span class="sr-only">(current)</span></a>
+                  <li class="nav-item ">
+                    <a class="nav-link" href="{{ url('/') }}">Inicio </a>
                   </li>
-                  <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('profile.index', auth()->user()->id) }}">Usuarios <span class="sr-only">(current)</span></a>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('profile.index', compact(auth()->user()->id)) }}">Usuarios</a>
                   </li>
-                  <li class="nav-item active">
-                    <a class="nav-link" href="{{ url('/') }}">Inicio <span class="sr-only">(current)</span></a>
-                  </li>
+                  @if(auth()->user()->access_id == 1)
+                      <li class="nav-item ">
+                        <a class="nav-link" href="{{ route('product.index') }}">Articulos </a>
+                      </li>
+                      <li class="nav-item ">
+                        <a class="nav-link" href="{{ route('contact.index') }}">Mensajes </a>
+                      </li>
+                  @endif
                 </ul>
                </div>
               </div>
@@ -98,7 +103,7 @@
                         <h3>Información</h3>
                         <ul class="info"> 
                             <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="about.html">Nosotros</a></li>
-                            <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="contact.html">Contactanos</a></li>
+                            <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{route('contact.create')}}">Contactanos</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">
@@ -120,7 +125,7 @@
                         <h3>Perfil</h3>
                         <ul class="info"> 
                             <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{ route('item.index') }}">Tienda</a></li>
-                            <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="checkout.html">Carrito</a></li>
+                            <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{ route('cart.index') }}">Carrito</a></li>
                             <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{ url('/login') }}">Entrar</a></li>
                             <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{ url('/register') }}">Registrarse</a></li>
                         </ul>

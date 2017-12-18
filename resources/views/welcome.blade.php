@@ -99,7 +99,7 @@
                         <h3>Información</h3>
                         <ul class="info"> 
                             <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="about.html">Nosotros</a></li>
-                            <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="contact.html">Contactanos</a></li>
+                            <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{route('contact.create')}}">Contactanos</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">
@@ -121,7 +121,7 @@
                         <h3>Perfil</h3>
                         <ul class="info"> 
                             <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{ route('item.index') }}">Tienda</a></li>
-                            <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="checkout.html">Carrito</a></li>
+                            <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{ route('cart.index') }}">Carrito</a></li>
                             <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{ url('/login') }}">Entrar</a></li>
                             <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{ url('/register') }}">Registrarse</a></li>
                         </ul>
