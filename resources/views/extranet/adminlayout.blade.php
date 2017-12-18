@@ -30,9 +30,9 @@
                 <ul class="navbar-nav ml-auto d-none d-md-block navzindex">
                     @if (auth()->guest())
                        <div class="choice  form-inline">
-                           
-                           <a class="nav-link" href="{{ url('/login') }}">Entrar</a>&nbsp;&nbsp;&nbsp;
-                           <a class="nav-link" href="{{ url('/register') }}">Registrarse</a>
+                           {{ redirect()->url('/login') }}
+                           {{-- <a class="nav-link" href="{{ url('/login') }}">Entrar</a>&nbsp;&nbsp;&nbsp;
+                           <a class="nav-link" href="{{ url('/register') }}">Registrarse</a> --}}
                        </div>
                     @else
                         <li class="nav-item dropdown">
@@ -42,9 +42,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 @if(auth()->user()->access_id == 1)
-                                    <li><a class="nav-link" href="{{ route('extranet') }}">Administración</a></li>
-                                @else 
-                                    <li><a class="nav-link" href="{{ route('profile.index') }}">Perfil</a></li>
+                                    <li><a class="nav-link" href="{{ url('/') }}">Volver</a></li>
                                 @endif
                                 <li><a class="nav-link" href="{{ url('/logout') }}">Salir</a></li>
                             </ul>
@@ -67,11 +65,12 @@
                   <li class="nav-item active">
                     <a class="nav-link" href="{{ url('/') }}">Inicio <span class="sr-only">(current)</span></a>
                   </li>
-                  @foreach(app('App\Http\Controllers\CategoryController')->index() as $category)
-                      <li class="nav-item">
-                        <a class="nav-link" name={{ $category->id }} href="{{ route('category.show',$category->id) }}">{{ $category->name }}</a>
-                      </li>
-                  @endforeach
+                  <li class="nav-item active">
+                    <a class="nav-link" href="{{ route('profile.index', auth()->user()->id) }}">Usuarios <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="{{ url('/') }}">Inicio <span class="sr-only">(current)</span></a>
+                  </li>
                 </ul>
                </div>
               </div>

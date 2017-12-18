@@ -21,12 +21,18 @@ header {
 .bg-light {
   background: #fe9126 !important;
 }
+.dropdown-menu {
+  background: #393737;
+}
 .navbar-light .navbar-nav .show > .nav-link,
 .navbar-light .navbar-nav .active > .nav-link,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .nav-link {
   color: #fff;
+}
+.show > .nav-link:hover {
+  color: #fe9126;
 }
 .navbar-light .navbar-nav .nav-link.disabled {
   color: #ececec;

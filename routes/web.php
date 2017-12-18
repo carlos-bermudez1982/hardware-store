@@ -21,6 +21,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
+Route::get('extranet', function() {
+	return view('extranet.adminindex');
+})->name('extranet');
+
 Route::resource('category', 'CategoryController');
 
 Route::resource('item', 'ItemController');
+
+Route::resource('profile','AdminUserController');
