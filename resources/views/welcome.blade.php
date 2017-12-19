@@ -99,7 +99,7 @@
                     <div class="col-md-3">
                         <h3>Información</h3>
                         <ul class="info"> 
-                            <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="about.html">Nosotros</a></li>
+                            <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{route('about')}}">Nosotros</a></li>
                             <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{route('contact.create')}}">Contactanos</a></li>
                         </ul>
                     </div>
