@@ -65,6 +65,16 @@
 			{!! method_field('GET') !!}
 			<button class="btn btn-success">Restaurar</button>
 		</form>
+		<form action="{{ route('payout.create') }}" method="POST">
+			{!! csrf_field() !!}
+			{!! method_field('GET') !!}
+			<button class="btn btn-success">Pagar</button>
+		</form>
+		<form action="{{ route('payout.destroy', auth()->user()->email) }}" method="POST">
+			{!! csrf_field() !!}
+			{!! method_field('DELETE') !!}
+			<button class="btn btn-danger">Borrar Carrito</button>
+		</form>
 	</div>
 </div>	
 

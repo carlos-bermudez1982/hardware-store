@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Gloudemans\Shoppingcart\Facades\Cart;
 
-class ShoppingCartController extends Controller
+class PayPlatformController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +13,7 @@ class ShoppingCartController extends Controller
      */
     public function index()
     {
-        if (auth()->guest()) {
-            return redirect()->route('login');
-        }
-        $items = Cart::instance(auth()->user()->email)->content();
-        return view('shoppingcart',compact('items'));
+        //
     }
 
     /**
@@ -28,7 +23,7 @@ class ShoppingCartController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -39,8 +34,7 @@ class ShoppingCartController extends Controller
      */
     public function store(Request $request)
     {
-        $var = Cart::instance(auth()->user()->email)->add(["id" => $request->id, 'name' => $request->name, 'qty' => $request->qty, 'price' => $request->price]);
-        return redirect()->route('cart.index');
+        //
     }
 
     /**
@@ -51,8 +45,7 @@ class ShoppingCartController extends Controller
      */
     public function show($id)
     {
-        $var = Cart::instance(auth()->user()->email)->restore($id);
-        return redirect()->route('cart.index');
+        //
     }
 
     /**
@@ -75,9 +68,7 @@ class ShoppingCartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $var = Cart::instance(auth()->user()->email)->store($id);
-    
-        return redirect()->route('cart.index');
+        //
     }
 
     /**
@@ -88,8 +79,6 @@ class ShoppingCartController extends Controller
      */
     public function destroy($id)
     {
-        $var = Cart::instance(auth()->user()->email)->remove($id);
-
-        return redirect()->route('cart.index');
+        //
     }
 }

@@ -46,3 +46,5 @@ Route::resource('address','AddressController');
 Route::resource('card','CardController');
 
 Route::resource('phone', 'PhoneController');
+
+Route::resource('payout', 'InvoiceHeaderController');
