@@ -4,12 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Address extends Model
+class Card extends Model
 {
     //
     protected $fillable = [
-    	'address','zip_code','city_id','user_id',
+    	'card_number','exp_month','exp_year','card_name', 'type_id', 'user_id',
     ];
-
-    
 }

@@ -14,7 +14,9 @@ class AddressController extends Controller
      */
     public function index()
     {
-        //
+        $addresses = Address::where('user_id','=',auth()->user()->id)->get();
+        // var_dump($addresses);
+        return $addresses;
     }
 
     /**
@@ -35,7 +37,10 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $variable = Address::create($request->all());
+        return redirect()->route('profile.index');
+
+        // return redirect()->route('contact.index')->with('info', 'Message sent sucessfully!');
     }
 
     /**
@@ -78,8 +83,10 @@ class AddressController extends Controller
      * @param  \App\Address  $address
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Address $address)
+    public function destroy($id)
     {
-        //
+        Address::destroy($id);
+
+        return redirect()->route('profile.index');
     }
 }

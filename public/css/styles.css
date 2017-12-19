@@ -165,3 +165,6 @@ textarea {
 main {
   min-height: 800px;
 }
+.form-group .form-control {
+  width: 100% !important;
+}

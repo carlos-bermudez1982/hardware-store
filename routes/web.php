@@ -29,10 +29,16 @@ Route::resource('category', 'CategoryController');
 
 Route::resource('item', 'ItemController');
 
-Route::resource('profile','AdminUserController');
+Route::resource('extranet/profile','AdminUserController');
 
-Route::resource('product', 'ProductAdminController');
+Route::resource('extranet/product', 'ProductAdminController');
 
 Route::resource('cart', 'ShoppingCartController');
 
 Route::resource('contact', 'MessagesController');
+
+Route::resource('address','AddressController');
+
+Route::resource('card','CardController');
+
+Route::resource('phone', 'PhoneController');

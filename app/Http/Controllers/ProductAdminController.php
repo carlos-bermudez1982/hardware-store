@@ -25,7 +25,7 @@ class ProductAdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('extranet.add');
     }
 
     /**

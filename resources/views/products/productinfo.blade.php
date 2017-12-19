@@ -22,12 +22,17 @@
 					<input type="hidden" name="name" value="{{$product->name}}">
 					<strong>Cantidad:</strong><input type="number" name="qty" value="1">
 					<input type="hidden" name="price" value="{{$product->price}}">
-					<button class="btn btn-outline-default my-2 my-sm-0" type="submit">Añadir</button>
+					
+					<div class="inline-form">
+						<br>
+						<button class="btn btn-outline-default my-2 my-sm-0" type="submit">Añadir</button>
+						<a class="btn btn-outline-default my-2 my-sm-0" href="{{ url()->previous() }}">Volver</a>
+					</div>
 				</form>
 				
 				
 				
-				<a class="btn btn-outline-default my-2 my-sm-0" href="{{ url()->previous() }}">Volver</a>
+				
 			</div>
 		@endforeach
     </div>

@@ -19,7 +19,6 @@ class CategoryController extends Controller
         $categories = Cache::rememberForever('categories.all', function(){
             return Category::all();
         });
-
         return $categories;
     }
 
@@ -41,7 +40,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $variable = Category::create($request->all());
+        Cache::flush();
+
+        // return redirect()->route('contact.index')->with('info', 'Message sent sucessfully!');
     }
 
     /**

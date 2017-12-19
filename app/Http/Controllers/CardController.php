@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Card;
 use Illuminate\Http\Request;
-use App\User;
 
-class AdminUserController extends Controller
+class CardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,14 +14,9 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        if (auth()->user()->access_id === 1) {
-            $users = User::all();
-        } else {
-            $users = User::with('accesslevel')->where('id',auth()->user()->id)->get();    
-        }
-        
-        
-        return view('extranet.profile',compact('users'));
+        $cards = Card::where('user_id','=',auth()->user()->id)->get();
+        // var_dump($addresses);
+        return $cards;
     }
 
     /**
@@ -42,16 +37,17 @@ class AdminUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $variable = Card::create($request->all());
+        return redirect()->route('profile.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Card $card)
     {
         //
     }
@@ -59,36 +55,36 @@ class AdminUserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Card $card)
     {
-        $users = User::findOrFail($id);
-        return view('extranet.editprofile', compact('users'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Card $card)
     {
-        User::findOrFail($id)->update(["name" => $request->name, "email" => $request->email, "password" => bcrypt($request->password)]);
-        return redirect()->route('profile.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Card  $card
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        Card::destroy($id);
+
+        return redirect()->route('profile.index');
     }
 }
